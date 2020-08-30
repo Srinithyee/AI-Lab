@@ -1,0 +1,73 @@
+visited = {}  #look up table 
+
+#states=[(a,b,c)for a in range(9) for b in range(6) for c in range(4) if a+b+c == 8 and ( a == 8 or a == 0 or b == 5 or b == 0 or c == 3 or c == 0 )]  # the jugs can be completly filled or empty
+#print (states) 
+
+states=[]
+
+capacity = (8,5,3)   # capacity of jugs
+initial_state = (8,0,0)
+
+x = capacity[0]
+y = capacity[1]
+z = capacity[2]
+
+def next_states(s):
+  a = s[0]
+  b = s[1]
+  c = s[2]
+  
+  states = []
+
+
+  if(a>0):
+      #empty a into b
+      if(a+b<=y):
+        states.append((0,a+b,c))
+          
+          
+      else:
+        states.append((a-(y-b), y, c))
+      
+      #empty a into c
+      if(a+c<=z):
+        states.append((0,b,a+c))
+
+      else:
+        states.append((a-(z-c),b,z))
+
+
+  
+  if(b>0):
+      #empty b into a
+      if(a+b<=x):
+        states.append((a+b, 0, c))
+
+      else:
+        states.append((x, b-(x-a), c))
+        
+
+      #empty b into c
+      if(b+c<=z):
+        states.append((a, 0, b+c))
+
+
+      else:
+        states.append((a,b-(z-c),z))
+
+
+  
+  if(c>0):
+      #empty c into a
+      if(a+c<=x):
+        states.append((a+c,b,0))
+
+      else:
+        states.append((x,b,c-(x-a)))
+
+      #empty c into b
+      if(b+c<=y):
+        states.append((a,b+c,0))
+
+      else:
+        states.append((a,y,c-(y-b)))
