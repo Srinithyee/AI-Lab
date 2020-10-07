@@ -11,3 +11,6 @@ Relevant Coursework as a part of my 5th semester
 
 
 4. Genetic Algorithm 8 queens
+
+
+5. Polygon traversal
