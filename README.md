@@ -14,3 +14,9 @@ Relevant Coursework as a part of my 5th semester
 
 
 5. Polygon traversal
+
+
+6. DPLL
+
+
+7. TIC TAC TOE
